@@ -1,0 +1,184 @@
+:root {
+  --color-dark: #361999;
+  --color-light: #78fff1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 24px;
+  background: linear-gradient(
+    to right top,
+    var(--color-light),
+    var(--color-dark)
+  );
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.form {
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.35)
+  );
+  max-width: 300px;
+  border-radius: 15px;
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.form__container {
+  position: relative;
+}
+
+#login,
+#password,
+#button {
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.25)
+  );
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+  color: rgb(255, 255, 255);
+  padding: 12px 24px;
+  font-size: 24px;
+  transition: box-shadow 300ms, outline 300ms;
+}
+
+#login,
+#password {
+  max-width: 100%;
+  cursor: text;
+}
+
+.form__label {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 24px;
+  cursor: text;
+  opacity: 0.4;
+  transition: left 300ms, opacity 300ms;
+  font-style: italic;
+}
+
+.form__container--password {
+  margin-top: 30px;
+}
+
+.form__seperator {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.25)
+  );
+  border-radius: 50%;
+  margin: 25px 0;
+}
+
+.form__avatar {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.25)
+  );
+  border-radius: 50%;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  border: 2px solid rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.form__avatar:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.form__avatar:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#login:focus + .form__label,
+#password:focus + .form__label {
+  opacity: 0;
+  left: 200px;
+}
+
+#login:not(:placeholder-shown) + .form__label,
+#password:not(:placeholder-shown) + .form__label {
+  opacity: 0;
+  left: 200px;
+}
+
+#login:hover,
+#password:hover,
+#button:hover {
+  box-shadow: 0px 8px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+#login:focus,
+#password:focus {
+  outline: solid 3px rgba(255, 255, 255, 0.7);
+}
+
+#button {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+#button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 25%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  transition: left 250ms;
+  transform: skewX(-15deg);
+}
+
+#button:hover::before {
+  left: 105%;
+}
